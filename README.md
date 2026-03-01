@@ -26,7 +26,7 @@ bun add -d ../brand
 Then in your project's `tailwind.config.ts`:
 ```ts
 import type { Config } from 'tailwindcss'
-import brand from '@yourname/brand/tailwind'
+import brand from '@amansanoj/brand/tailwind'
 
 const config: Config = {
   ...brand,
@@ -45,11 +45,16 @@ export default config
 
 Import assets:
 ```ts
-import headshot from '@yourname/brand/images/headshots/main.jpg'
+import headshot from '@amansanoj/brand/images/headshots/main.jpg'
 ```
 
 ## Fonts
 Add to your project's HTML:
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+```
+
+Add JetBrains Mono only in projects that need code blocks:
+```html
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 ```
