@@ -20,7 +20,7 @@ Personal brand system — Tailwind design tokens, logos, fonts, headshots, and s
 
 Install in a project:
 ```bash
-bun add -d ../brand
+bun add @amansanoj/brand
 ```
 
 Then in your project's `tailwind.config.ts`:

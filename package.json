@@ -1,6 +1,6 @@
 {
   "name": "@amansanoj/brand",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Personal brand system — Tailwind design tokens, logos, fonts, headshots, and shared assets used across all my projects.",
   "module": "index.ts",
   "type": "module",
