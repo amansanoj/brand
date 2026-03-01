@@ -1,0 +1,29 @@
+{
+  "name": "@amansanoj/brand",
+  "version": "1.0.0",
+  "description": "Personal brand system — Tailwind design tokens, logos, fonts, headshots, and shared assets used across all my projects.",
+  "module": "index.ts",
+  "type": "module",
+  "private": false,
+  "exports": {
+    ".": "./index.ts",
+    "./tailwind": "./tailwind.config.ts",
+    "./tokens": "./tokens.json",
+    "./assets/*": "./assets/*",
+    "./images/*": "./images/*"
+  },
+  "files": [
+    "index.ts",
+    "tailwind.config.ts",
+    "tokens.json",
+    "assets/",
+    "images/"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tailwindcss": "^4.2.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
