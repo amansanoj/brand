@@ -9,6 +9,7 @@
     ".": "./index.ts",
     "./tailwind": "./tailwind.config.ts",
     "./tokens": "./tokens.json",
+    "./globals.css": "./globals.css",
     "./assets/*": "./assets/*",
     "./images/*": "./images/*"
   },
@@ -16,6 +17,7 @@
     "index.ts",
     "tailwind.config.ts",
     "tokens.json",
+    "globals.css",
     "assets/",
     "images/"
   ],
