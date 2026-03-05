@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss'
 
 // ─────────────────────────────────────────────────────────────
 //  Design Tokens — tailwind.config.ts
-//  Single source of truth for all projects.
+//  shadcn/ui-compatible. CSS variables are defined in globals.css.
 //  Usage in each project:
 //    import brand from '@amansanoj/brand/tailwind'
 //    export default { ...brand, content: ['./src/**/*.{ts,tsx}'] }
@@ -16,36 +16,60 @@ const config: Config = {
   theme: {
     extend: {
 
-      // ── Colors ──────────────────────────────────────────────
+      // ── Colors (CSS variable references — see globals.css) ───
       colors: {
+        background:   'var(--background)',
+        foreground:   'var(--foreground)',
+        card: {
+          DEFAULT:    'var(--card)',
+          foreground: 'var(--card-foreground)',
+        },
+        popover: {
+          DEFAULT:    'var(--popover)',
+          foreground: 'var(--popover-foreground)',
+        },
         primary: {
-          DEFAULT: '#156bb3',
-          light:   '#3d8fd1',
-          dark:    '#0e4f87',
-          subtle:  '#e8f2fb',
+          DEFAULT:    'var(--primary)',
+          foreground: 'var(--primary-foreground)',
+          light:      'var(--primary-light)',
+          dark:       'var(--primary-dark)',
+          ring:       'var(--primary-ring)',
+        },
+        secondary: {
+          DEFAULT:    'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
+        },
+        muted: {
+          DEFAULT:    'var(--muted)',
+          foreground: 'var(--muted-foreground)',
         },
         accent: {
-          DEFAULT: '#ea944c',
-          light:   '#f0b07a',
-          dark:    '#c8712a',
-          subtle:  '#fdf1e8',
+          DEFAULT:    'var(--accent)',
+          foreground: 'var(--accent-foreground)',
         },
-        neutral: {
-          0:   '#ffffff',
-          50:  '#f5f5f5',
-          100: '#e8e8e8',
-          200: '#d0d0d0',
-          400: '#9a9a9a',
-          600: '#5a5a5a',
-          800: '#2e2e2e',
-          900: '#191919',
+        destructive: {
+          DEFAULT:    'var(--destructive)',
+          foreground: 'var(--destructive-foreground)',
         },
-        success: '#2d9e6b',
-        warning: '#e6a817',
-        error:   '#d94f4f',
-        bg: {
-          light: '#ffffff',
-          dark:  '#191919',
+        border: 'var(--border)',
+        input:  'var(--input)',
+        ring:   'var(--ring)',
+        chart: {
+          '1': 'var(--chart-1)',
+          '2': 'var(--chart-2)',
+          '3': 'var(--chart-3)',
+          '4': 'var(--chart-4)',
+          '5': 'var(--chart-5)',
+        },
+        sidebar: {
+          DEFAULT:              'var(--sidebar)',
+          foreground:           'var(--sidebar-foreground)',
+          primary:              'var(--sidebar-primary)',
+          'primary-foreground': 'var(--sidebar-primary-foreground)',
+          accent:               'var(--sidebar-accent)',
+          'accent-foreground':  'var(--sidebar-accent-foreground)',
+          border:               'var(--sidebar-border)',
+          ring:                 'var(--sidebar-ring)',
         },
       },
 
@@ -88,15 +112,15 @@ const config: Config = {
         container: '6rem',
       },
 
-      // ── Border Radius ────────────────────────────────────────
+      // ── Border Radius (shadcn/ui convention) ─────────────────
       borderRadius: {
         none:    '0',
-        sm:      '0.25rem',
-        DEFAULT: '0.5rem',
-        md:      '0.5rem',
-        lg:      '0.75rem',
-        xl:      '1rem',
-        '2xl':   '1.5rem',
+        sm:      'calc(var(--radius) - 4px)',
+        DEFAULT: 'var(--radius)',
+        md:      'calc(var(--radius) - 2px)',
+        lg:      'var(--radius)',
+        xl:      'calc(var(--radius) + 4px)',
+        '2xl':   'calc(var(--radius) + 8px)',
         full:    '9999px',
       },
 
