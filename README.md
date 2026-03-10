@@ -1,5 +1,4 @@
-# brand
-Personal brand system — shadcn/ui-compatible design tokens, logos, fonts, headshots, and shared assets used across all my projects.
+![OG Image](https://repo-og-generator.vercel.app/brand?description=Personal+brand+system+%E2%80%94+shadcn%2Fui-compatible+design+tokens%2C+logos%2C+fonts%2C+headshots%2C+and+shared+assets+used+across+all+my+projects&scale=2)
 
 ## Contents
 - `globals.css` — CSS custom properties for light & dark mode (shadcn/ui convention)
