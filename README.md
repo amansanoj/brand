@@ -22,6 +22,17 @@ All colors are defined as `oklch` CSS custom properties. Key values:
 
 See `globals.css` for the full token list.
 
+The original hex palette is also preserved in `tokens.json` under `color.palette` for use outside of CSS contexts:
+
+| Key | Value |
+|---|---|
+| `color.palette.primary.default` | `#156bb3` |
+| `color.palette.primary.light` | `#3d8fd1` |
+| `color.palette.primary.dark` | `#0e4f87` |
+| `color.palette.accent.default` | `#ea944c` |
+| `color.palette.accent.light` | `#f0b07a` |
+| `color.palette.accent.dark` | `#c8712a` |
+
 ## Usage
 
 Install in a project:
