@@ -8,30 +8,37 @@
 - `images/` — headshots, open graph images
 
 ## Tokens
-All colors are defined as `oklch` CSS custom properties. Key values:
+Base color tokens are available in both OKLCH and HEX formats via `tokens.json`.
+
+### Base OKLCH (`color.light.base` / `color.dark.base`)
 
 | Token | Light | Dark |
 |---|---|---|
-| `--primary` | `oklch(0.5183 0.137 249.921)` | `oklch(0.5183 0.137 249.921)` |
-| `--accent` | `oklch(0.7415 0.135 58.279)` | `oklch(0.7415 0.135 58.279)` |
-| `--background` | `oklch(1 0 0)` | `oklch(0.2134 0 0)` |
-| `--foreground` | `oklch(0.2134 0 0)` | `oklch(1 0 0)` |
-| `--radius` | `0.5rem` | `0.5rem` |
-| Font sans/serif | `Open Sans` | — |
-| Font mono | `Open Sans` | — |
+| `text` | `oklch(21.34% 0.000 89.88)` | `oklch(98.51% 0.000 89.88)` |
+| `background` | `oklch(98.51% 0.000 89.88)` | `oklch(21.34% 0.000 89.88)` |
+| `primary` | `oklch(62.97% 0.127 246.14)` | `oklch(62.97% 0.127 246.14)` |
+| `secondary` | `oklch(80.53% 0.102 60.76)` | `oklch(80.53% 0.102 60.76)` |
+| `accent` | `oklch(69.51% 0.072 98.82)` | `oklch(69.51% 0.072 98.82)` |
 
-See `globals.css` for the full token list.
+### Base HEX (`color.hex.light.base` / `color.hex.dark.base`)
 
-The original hex palette is also preserved in `tokens.json` under `color.palette` for use outside of CSS contexts:
+| Token | Light | Dark |
+|---|---|---|
+| `text` | `#191919` | `#fafafa` |
+| `background` | `#fafafa` | `#191919` |
+| `primary` | `#3d8fd1` | `#3d8fd1` |
+| `secondary` | `#f0b07a` | `#f0b07a` |
+| `accent` | `#a89e69` | `#a89e69` |
 
-| Key | Value |
+### Other globals
+
+| Token | Value |
 |---|---|
-| `color.palette.primary.default` | `#156bb3` |
-| `color.palette.primary.light` | `#3d8fd1` |
-| `color.palette.primary.dark` | `#0e4f87` |
-| `color.palette.accent.default` | `#ea944c` |
-| `color.palette.accent.light` | `#f0b07a` |
-| `color.palette.accent.dark` | `#c8712a` |
+| Radius | `0.5rem` |
+| Font sans/serif | `Open Sans` |
+| Font mono | `Open Sans` |
+
+See `globals.css` and `tokens.json` for the full token list and scales.
 
 ## Usage
 

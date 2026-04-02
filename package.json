@@ -1,6 +1,6 @@
 {
   "name": "@amansanoj/brand",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Personal brand system — shadcn/ui-compatible CSS tokens, Tailwind config, logos, fonts, headshots, and shared assets used across all my projects.",
   "repository": {
     "type": "git",
