@@ -17,8 +17,8 @@ All colors are defined as `oklch` CSS custom properties. Key values:
 | `--background` | `oklch(1 0 0)` | `oklch(0.2134 0 0)` |
 | `--foreground` | `oklch(0.2134 0 0)` | `oklch(1 0 0)` |
 | `--radius` | `0.5rem` | `0.5rem` |
-| Font sans/serif | `Rubik` | — |
-| Font mono | `JetBrains Mono` | — |
+| Font sans/serif | `Open Sans` | — |
+| Font mono | `Open Sans` | — |
 
 See `globals.css` for the full token list.
 
@@ -79,4 +79,4 @@ import headshot from '@amansanoj/brand/images/headshots/main.jpg'
 ```
 
 ## Fonts
-`globals.css` already imports Rubik and JetBrains Mono from Google Fonts. No additional `<link>` tags needed.
+`globals.css` already imports Open Sans from Google Fonts. No additional `<link>` tags needed.

@@ -76,9 +76,9 @@ const config: Config = {
 
       // ── Typography ──────────────────────────────────────────
       fontFamily: {
-        display: ['Rubik', 'sans-serif'],
-        body:    ['Rubik', 'sans-serif'],
-        mono:    ['JetBrains Mono', 'monospace'],
+        display: ['Open Sans', 'sans-serif'],
+        body:    ['Open Sans', 'sans-serif'],
+        mono:    ['Open Sans', 'monospace'],
       },
 
       fontSize: {
