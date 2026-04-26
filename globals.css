@@ -119,8 +119,8 @@
   --radius: 0.5rem;
 
   /* ── Typography ──────────────────────────────────────────── */
-  --font-sans:  'Geist', sans-serif;
-  --font-serif: 'Instrument Sans', sans-serif;
+  --font-display: 'Instrument Sans', sans-serif;
+  --font-body:  'Geist', sans-serif;
   --font-mono:  'Geist Mono', monospace;
 }
 
