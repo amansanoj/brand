@@ -8,35 +8,45 @@
 - `images/` — headshots, open graph images
 
 ## Tokens
-Base color tokens are available in both OKLCH and HEX formats via `tokens.json`.
+Base color tokens are available in OKLCH, RGB, and HEX formats via `tokens.json`.
 
 ### Base OKLCH (`color.light.base` / `color.dark.base`)
 
 | Token | Light | Dark |
 |---|---|---|
-| `text` | `oklch(21.34% 0.000 89.88)` | `oklch(98.51% 0.000 89.88)` |
-| `background` | `oklch(98.51% 0.000 89.88)` | `oklch(21.34% 0.000 89.88)` |
+| `text` | `oklch(21.78% 0.000 89.88)` | `oklch(98.51% 0.000 89.88)` |
+| `background` | `oklch(98.51% 0.000 89.88)` | `oklch(21.78% 0.000 89.88)` |
 | `primary` | `oklch(62.97% 0.127 246.14)` | `oklch(62.97% 0.127 246.14)` |
-| `secondary` | `oklch(80.53% 0.102 60.76)` | `oklch(80.53% 0.102 60.76)` |
-| `accent` | `oklch(69.51% 0.072 98.82)` | `oklch(69.51% 0.072 98.82)` |
+| `secondary` | `oklch(80.34% 0.103 59.80)` | `oklch(80.34% 0.103 59.80)` |
+| `accent` | `oklch(69.83% 0.072 98.81)` | `oklch(69.83% 0.072 98.81)` |
+
+### Base RGB (`color.rgb.light.base` / `color.rgb.dark.base`)
+
+| Token | Light | Dark |
+|---|---|---|
+| `text` | `rgb(26, 26, 26)` | `rgb(250, 250, 250)` |
+| `background` | `rgb(250, 250, 250)` | `rgb(26, 26, 26)` |
+| `primary` | `rgb(61, 143, 209)` | `rgb(61, 143, 209)` |
+| `secondary` | `rgb(240, 175, 122)` | `rgb(240, 175, 122)` |
+| `accent` | `rgb(169, 159, 106)` | `rgb(169, 159, 106)` |
 
 ### Base HEX (`color.hex.light.base` / `color.hex.dark.base`)
 
 | Token | Light | Dark |
 |---|---|---|
-| `text` | `#191919` | `#fafafa` |
-| `background` | `#fafafa` | `#191919` |
+| `text` | `#1a1a1a` | `#fafafa` |
+| `background` | `#fafafa` | `#1a1a1a` |
 | `primary` | `#3d8fd1` | `#3d8fd1` |
-| `secondary` | `#f0b07a` | `#f0b07a` |
-| `accent` | `#a89e69` | `#a89e69` |
+| `secondary` | `#f0af7a` | `#f0af7a` |
+| `accent` | `#a99f6a` | `#a99f6a` |
 
 ### Other globals
 
 | Token | Value |
 |---|---|
 | Radius | `0.5rem` |
-| Font sans/serif | `Open Sans` |
-| Font mono | `Open Sans` |
+| Font display/body | `Instrument Sans` / `Geist` |
+| Font mono | `Geist Mono` |
 
 See `globals.css` and `tokens.json` for the full token list and scales.
 
@@ -86,4 +96,4 @@ import headshot from '@amansanoj/brand/images/headshots/main.jpg'
 ```
 
 ## Fonts
-`globals.css` already imports Open Sans from Google Fonts. No additional `<link>` tags needed.
+`globals.css` already imports Instrument Sans, Geist, and Geist Mono from Google Fonts. No additional `<link>` tags needed.

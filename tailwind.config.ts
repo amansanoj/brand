@@ -121,9 +121,9 @@ const config: Config = {
 
       // ── Typography ──────────────────────────────────────────
       fontFamily: {
-        display: ['Open Sans', 'sans-serif'],
-        body:    ['Open Sans', 'sans-serif'],
-        mono:    ['Open Sans', 'monospace'],
+        display: ['Instrument Sans', 'sans-serif'],
+        body:    ['Geist', 'sans-serif'],
+        mono:    ['Geist Mono', 'monospace'],
       },
 
       fontSize: {
