@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brand Styleguide</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/globals.css" />
+
+    <!-- Inline theme initialization to prevent FOUC -->
+    <script>
+      (() => {
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const isDark = saved === "dark" || (!saved && prefersDark);
+        document.documentElement.classList.toggle("dark", isDark);
+        document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+      })();
+    </script>
+  </head>
+
+  <body
+    class="bg-background text-foreground min-h-screen flex flex-col items-center pt-16 px-5 pb-20 font-body antialiased leading-normal"
+  >
+    <div class="w-full max-w-4xl flex flex-col gap-12">
+      <!-- Header -->
+      <header class="flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <h1 class="text-5xl font-semibold font-display tracking-normal">
+            Brand System
+          </h1>
+
+          <nav class="flex items-center gap-5" aria-label="Header actions">
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-muted-foreground hover:text-secondary transition-colors duration-200 flex items-center"
+              aria-label="Toggle dark mode"
+            >
+              <!-- Sun icon (shown in dark mode) -->
+              <svg
+                id="icon-sun"
+                class="hidden"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="2rem"
+                height="2rem"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M184,128a56,56,0,1,1-56-56A56,56,0,0,1,184,128Z"
+                  opacity="0.2"
+                ></path>
+                <path
+                  d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"
+                ></path>
+              </svg>
+              <!-- Moon icon (shown in light mode) -->
+              <svg
+                id="icon-moon"
+                class="hidden"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="2rem"
+                height="2rem"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M227.89,147.89A96,96,0,1,1,108.11,28.11,96.09,96.09,0,0,0,227.89,147.89Z"
+                  opacity="0.2"
+                ></path>
+                <path
+                  d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"
+                ></path>
+              </svg>
+            </button>
+
+            <a
+              href="https://www.npmjs.com/package/@amansanoj/brand"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground hover:text-secondary transition-colors duration-200 flex items-center"
+              aria-label="View package on NPM"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2rem"
+                height="2rem"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <title>npm</title>
+                <path
+                  d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.113z"
+                />
+              </svg>
+            </a>
+          </nav>
+        </div>
+
+        <p class="text-xl text-muted-foreground">
+          Interactive styleguide for my brand's colors and typography.
+        </p>
+
+        <br />
+
+        <!-- RealTimeColors preview links — hidden until tokens are loaded -->
+        <div
+          id="rt-buttons-container"
+          class="flex flex-wrap items-center gap-3 mt-3 hidden"
+          aria-label="Preview links"
+        >
+          <a
+            id="rt-link-light"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-max px-4 py-2 text-sm font-semibold bg-muted border border-border text-foreground rounded-lg hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all flex items-center gap-2"
+          >
+            Preview Light Mode
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.2em"
+              height="1.2em"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+              aria-hidden="true"
+            >
+              <path
+                d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            id="rt-link-dark"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-max px-4 py-2 text-sm font-semibold bg-muted border border-border text-foreground rounded-lg hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all flex items-center gap-2"
+          >
+            Preview Dark Mode
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.2em"
+              height="1.2em"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+              aria-hidden="true"
+            >
+              <path
+                d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <hr class="border-border border-t-2" />
+
+      <!-- Colors Section -->
+      <section aria-labelledby="colors-heading">
+        <div class="flex flex-col gap-1 mb-10">
+          <h2 id="colors-heading" class="text-3xl font-semibold font-display">
+            Colors
+          </h2>
+          <p class="text-base text-muted-foreground">
+            Click any format to copy the exact value to your clipboard.
+          </p>
+          <br />
+        </div>
+        <div id="color-palettes-container" class="flex flex-col gap-10"></div>
+      </section>
+
+      <hr class="border-border border-t-2 mt-4" />
+
+      <!-- Typography Section -->
+      <section aria-labelledby="typography-heading">
+        <div class="flex flex-col gap-1 mb-6">
+          <h2
+            id="typography-heading"
+            class="text-3xl font-semibold font-display"
+          >
+            Typography
+          </h2>
+          <p class="text-base text-muted-foreground">
+            Preview your core font families and view them on Google Fonts.
+          </p>
+          <br />
+        </div>
+        <div id="typography-container"></div>
+      </section>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/basecoat-css@latest/dist/js/all.min.js"
+      defer
+    ></script>
+
+    <script>
+      // ---------------------------------------------------------------------------
+      // Constants & DOM refs
+      // ---------------------------------------------------------------------------
+      const TOKENS_URL = "https://unpkg.com/@amansanoj/brand/tokens.json";
+      const PALETTE_CATEGORIES = [
+        "primary",
+        "secondary",
+        "accent",
+        "text",
+        "background",
+      ];
+      const STORY_SAMPLES = {
+        display:
+          "The hum of the warp drive shifted an octave, signaling our arrival at the edge of the known universe.",
+        body: "For three generations, humanity had stared at this exact quadrant through the hazy lenses of orbital telescopes, dreaming of what lay beyond the indigo nebula. Now, pressing my face against the chilled viewport of the Aethelgard, I could see the fracturing crystalline structures of the anomaly with my own eyes. It wasn't just empty space; it was a doorway.",
+        mono: "> INITIALIZING DIAGNOSTICS...\n> HULL INTEGRITY: 98.2%\n> ANOMALY DETECTED:\n  - CLASS: UNKNOWN\n  - SPATIAL DISTORTION: EXTREME\n> AWAITING COMMAND OVERRIDE...",
+      };
+
+      const colorContainer = document.getElementById(
+        "color-palettes-container",
+      );
+      const typoContainer = document.getElementById("typography-container");
+
+      // ---------------------------------------------------------------------------
+      // Theme
+      // ---------------------------------------------------------------------------
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const iconSun = document.getElementById("icon-sun");
+      const iconMoon = document.getElementById("icon-moon");
+
+      /** Sync icon visibility to the current theme state. */
+      function syncThemeIcons() {
+        const isDark = document.documentElement.classList.contains("dark");
+        iconSun.classList.toggle("hidden", !isDark);
+        iconMoon.classList.toggle("hidden", isDark);
+      }
+
+      /** Toggle dark/light mode, persist preference, and update icons. */
+      function applyThemeToggle() {
+        const isDark = document.documentElement.classList.toggle("dark");
+        document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        syncThemeIcons();
+      }
+
+      syncThemeIcons();
+
+      themeToggleBtn.addEventListener("click", () => {
+        if (document.startViewTransition) {
+          document.startViewTransition(applyThemeToggle);
+        } else {
+          applyThemeToggle();
+        }
+      });
+
+      // ---------------------------------------------------------------------------
+      // Copy-to-clipboard
+      // ---------------------------------------------------------------------------
+      colorContainer.addEventListener("click", (e) => {
+        const btn = e.target.closest(".copy-btn");
+        if (!btn) return;
+
+        const card = btn.closest(".swatch-card");
+        const format = btn.dataset.format;
+        const theme = document.documentElement.classList.contains("dark")
+          ? "Dark"
+          : "Light";
+        const value = card.dataset[`${format}${theme}`];
+
+        navigator.clipboard.writeText(value).then(() => {
+          const original = btn.textContent;
+          btn.textContent = "Copied!";
+          btn.classList.add(
+            "!bg-accent",
+            "!border-accent",
+            "!text-accent-foreground",
+          );
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove(
+              "!bg-accent",
+              "!border-accent",
+              "!text-accent-foreground",
+            );
+          }, 1500);
+        });
+      });
+
+      // ---------------------------------------------------------------------------
+      // Token helpers
+      // ---------------------------------------------------------------------------
+
+      /**
+       * Resolve a color token from the tokens object.
+       * @param {'hex'|'rgb'|'oklch'} format
+       * @param {'light'|'dark'} theme
+       * @param {string} category  e.g. 'primary'
+       * @param {string} shade     e.g. 'base' | '100' | '200' …
+       */
+      function getToken(data, format, theme, category, shade) {
+        const root =
+          format === "oklch" ? data.color[theme] : data.color[format][theme];
+        return shade === "base" ? root.base[category] : root[category][shade];
+      }
+
+      /**
+       * Build a RealTimeColors preview URL for a given theme.
+       * @param {object} data  Parsed tokens.json
+       * @param {'light'|'dark'} theme
+       */
+      function buildRealTimeColorsUrl(data, theme) {
+        const base = data.color.hex[theme].base;
+        const strip = (hex) => hex.replace("#", "");
+        const colors = `${strip(base.text)}-${strip(base.background)}-${strip(base.primary)}-${strip(base.secondary)}-${strip(base.accent)}`;
+        const displayFont = data.typography.family.display
+          .split(",")[0]
+          .replace(/['"]/g, "")
+          .trim();
+        const bodyFont = data.typography.family.body
+          .split(",")[0]
+          .replace(/['"]/g, "")
+          .trim();
+        const fonts = `${displayFont}-${bodyFont}`.replace(/ /g, "%20");
+        return `https://www.realtimecolors.com/?colors=${colors}&fonts=${fonts}`;
+      }
+
+      // ---------------------------------------------------------------------------
+      // HTML builders
+      // ---------------------------------------------------------------------------
+
+      /** Create the inner HTML for a single color swatch card. */
+      function createSwatchHTML(shadeName, cssVariable, tokens) {
+        const { hexL, hexD, rgbL, rgbD, oklchL, oklchD } = tokens;
+        return `
+        <div
+          class="swatch-card flex flex-col rounded-xl border border-border bg-background overflow-hidden"
+          data-hex-light="${hexL}" data-hex-dark="${hexD}"
+          data-rgb-light="${rgbL}" data-rgb-dark="${rgbD}"
+          data-oklch-light="${oklchL}" data-oklch-dark="${oklchD}"
+        >
+          <div class="h-20 w-full border-b border-border/50 color-block" style="background-color: ${cssVariable}"></div>
+          <div class="p-3 flex flex-col gap-2.5">
+            <span class="font-semibold text-foreground text-sm capitalize">${shadeName}</span>
+            <div class="flex items-center gap-1.5 w-full">
+              <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="hex" aria-label="Copy HEX value">HEX</button>
+              <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="rgb" aria-label="Copy RGB value">RGB</button>
+              <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="oklch" aria-label="Copy OKLCH value">OKLCH</button>
+            </div>
+          </div>
+        </div>
+      `;
+      }
+
+      /** Create the HTML for a full color palette section. */
+      function createPaletteSectionHTML(data, category) {
+        const mkTokens = (shade) => ({
+          hexL: getToken(data, "hex", "light", category, shade),
+          hexD: getToken(data, "hex", "dark", category, shade),
+          rgbL: getToken(data, "rgb", "light", category, shade),
+          rgbD: getToken(data, "rgb", "dark", category, shade),
+          oklchL: getToken(data, "oklch", "light", category, shade),
+          oklchD: getToken(data, "oklch", "dark", category, shade),
+        });
+
+        const baseVar = `var(--${category})`;
+        let swatchesHTML = createSwatchHTML("Base", baseVar, mkTokens("base"));
+
+        const shadeKeys = Object.keys(
+          data.color.hex.light[category] ?? {},
+        ).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+
+        for (const shade of shadeKeys) {
+          swatchesHTML += createSwatchHTML(
+            shade,
+            `var(--${category}-${shade})`,
+            mkTokens(shade),
+          );
+        }
+
+        return `
+        <div class="flex flex-col gap-4">
+          <h3 class="text-2xl font-semibold font-display border-b border-border pb-2 capitalize">${category}</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 palette-grid">${swatchesHTML}</div>
+        </div>
+      `;
+      }
+
+      /** Create the HTML for the typography section. */
+      function createTypographyHTML(families) {
+        const sizeClasses = {
+          display: "text-4xl md:text-5xl",
+          body: "text-xl md:text-2xl",
+          mono: "text-lg md:text-xl",
+        };
+        const extraClasses = {
+          mono: "whitespace-pre-wrap",
+          display: "leading-relaxed",
+          body: "leading-relaxed",
+        };
+
+        const cards = Object.entries(families)
+          .map(([category, fontString]) => {
+            const fontName = fontString
+              .split(",")[0]
+              .replace(/['"]/g, "")
+              .trim();
+            const googleFontsUrl = `https://fonts.google.com/specimen/${fontName.replace(/ /g, "+")}`;
+            const sample = STORY_SAMPLES[category] ?? "";
+
+            return `
+          <div class="swatch-card flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+            <div class="w-full border-b border-border/50 p-6 md:p-8 bg-muted/30 min-h-[160px] flex items-center">
+              <p class="${sizeClasses[category]} text-foreground font-${category} ${extraClasses[category]}">${sample}</p>
+            </div>
+            <div class="p-4 flex items-center justify-between w-full">
+              <div class="flex flex-col gap-0.5">
+                <span class="font-semibold text-foreground text-sm capitalize">${category}</span>
+                <span class="text-xs text-muted-foreground truncate">${fontName}</span>
+              </div>
+              <a href="${googleFontsUrl}" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-foreground transition-colors p-1" aria-label="View ${fontName} on Google Fonts">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+                  <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        `;
+          })
+          .join("");
+
+        return `<div class="flex flex-col gap-6">${cards}</div>`;
+      }
+
+      // ---------------------------------------------------------------------------
+      // Bootstrap — fetch tokens and render everything
+      // ---------------------------------------------------------------------------
+      async function init() {
+        try {
+          const response = await fetch(TOKENS_URL);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+
+          // RealTimeColors preview buttons
+          document.getElementById("rt-link-light").href =
+            buildRealTimeColorsUrl(data, "light");
+          document.getElementById("rt-link-dark").href = buildRealTimeColorsUrl(
+            data,
+            "dark",
+          );
+          document
+            .getElementById("rt-buttons-container")
+            .classList.remove("hidden");
+
+          // Colors
+          const palettesHTML = PALETTE_CATEGORIES.map((cat) =>
+            createPaletteSectionHTML(data, cat),
+          ).join("");
+          colorContainer.innerHTML = palettesHTML;
+
+          // Typography
+          typoContainer.innerHTML = createTypographyHTML(
+            data.typography.family,
+          );
+        } catch (err) {
+          console.error("Failed to load brand tokens:", err);
+          colorContainer.insertAdjacentHTML(
+            "beforeend",
+            '<p class="text-destructive">Failed to load brand tokens from NPM. Please try again later.</p>',
+          );
+        }
+      }
+
+      window.addEventListener("load", init);
+    </script>
+  </body>
+</html>
