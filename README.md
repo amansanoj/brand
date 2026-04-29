@@ -1,75 +1,65 @@
-![OG Image](https://repo-og-generator.vercel.app/brand?description=Personal+brand+system+%E2%80%94+shadcn%2Fui-compatible+design+tokens%2C+logos%2C+fonts%2C+headshots%2C+and+shared+assets+used+across+all+my+projects&scale=2)
+![OG Image](https://repo-og-generator.vercel.app/brand?description=Personal%20brand%20system%20-%20shadcn%2Fui-%20compatible%20design%20tokens%2C%20logos%2C%20fonts%2C%20headshots%2C%20and%20shared%20assets&scale=2)
 
-## Contents
-- `globals.css` — CSS custom properties for light & dark mode (shadcn/ui convention)
-- `tailwind.config.ts` — Tailwind config wired to CSS variables
-- `tokens.json` — machine-readable token reference (light + dark)
-- `assets/` — logo SVG
-- `images/` — headshots, open graph images
+## Index
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [License](#license)
 
-## Tokens
-Base color tokens are available in OKLCH, RGB, and HEX formats via `tokens.json`.
+## Features
+- Provides a centralized personal brand system containing logos, fonts, headshots, and shared assets
+- Ships with shadcn/ui-compatible design tokens for seamless React/UI integration
+- Includes light and dark mode custom CSS properties out of the box
+- Offers base color tokens in OKLCH, RGB, and HEX formats accessible via a machine-readable JSON file
+- Exports a pre-configured Tailwind configuration wired directly to the brand's CSS variables
 
-### Base OKLCH (`color.light.base` / `color.dark.base`)
-
-| Token | Light | Dark |
-|---|---|---|
-| `text` | `oklch(21.78% 0.000 89.88)` | `oklch(98.51% 0.000 89.88)` |
-| `background` | `oklch(98.51% 0.000 89.88)` | `oklch(21.78% 0.000 89.88)` |
-| `primary` | `oklch(62.97% 0.127 246.14)` | `oklch(62.97% 0.127 246.14)` |
-| `secondary` | `oklch(80.34% 0.103 59.80)` | `oklch(80.34% 0.103 59.80)` |
-| `accent` | `oklch(69.83% 0.072 98.81)` | `oklch(69.83% 0.072 98.81)` |
-
-### Base RGB (`color.rgb.light.base` / `color.rgb.dark.base`)
-
-| Token | Light | Dark |
-|---|---|---|
-| `text` | `rgb(26, 26, 26)` | `rgb(250, 250, 250)` |
-| `background` | `rgb(250, 250, 250)` | `rgb(26, 26, 26)` |
-| `primary` | `rgb(61, 143, 209)` | `rgb(61, 143, 209)` |
-| `secondary` | `rgb(240, 175, 122)` | `rgb(240, 175, 122)` |
-| `accent` | `rgb(169, 159, 106)` | `rgb(169, 159, 106)` |
-
-### Base HEX (`color.hex.light.base` / `color.hex.dark.base`)
-
-| Token | Light | Dark |
-|---|---|---|
-| `text` | `#1a1a1a` | `#fafafa` |
-| `background` | `#fafafa` | `#1a1a1a` |
-| `primary` | `#3d8fd1` | `#3d8fd1` |
-| `secondary` | `#f0af7a` | `#f0af7a` |
-| `accent` | `#a99f6a` | `#a99f6a` |
-
-### Other globals
-
-| Token | Value |
-|---|---|
-| Radius | `0.5rem` |
-| Font display/body | `Instrument Sans` / `Geist` |
-| Font mono | `Geist Mono` |
-
-See `globals.css` and `tokens.json` for the full token list and scales.
+## Project Structure
+```text
+.
+├── .gitignore
+├── README.md
+├── assets/
+├── bun.lock
+├── globals.css
+├── index.ts
+├── package-lock.json
+├── package.json
+├── tailwind.config.ts
+├── tokens.json
+└── tsconfig.json
+```
+`globals.css` serves as the source of truth for custom properties, while `tokens.json` acts as a machine-readable reference for the light and dark color values.
 
 ## Usage
+Install the brand package in your project using bun:
 
-Install in a project:
-```bash
+```sh
 bun add @amansanoj/brand
 ```
 
 ### 1. Import CSS variables
+**Via Bundler/Framework:**
+In your project's global stylesheet (e.g. `app.css` or `globals.css`), import the base styles. This sets all `--token` custom properties on `:root` (light mode) and `.dark` (dark mode):
 
-In your project's global stylesheet (e.g. `app.css` / `globals.css`):
 ```css
 @import '@amansanoj/brand/globals.css';
 ```
 
-This sets all `--token` custom properties on `:root` (light) and `.dark` (dark mode).
+**Via CDN (Plain HTML):**
+If you are working with static HTML files without a build step, you can include the CSS directly in your `<head>` using a CDN:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@amansanoj/brand/globals.css">
+
+<link rel="stylesheet" href="https://unpkg.com/@amansanoj/brand/globals.css">
+```
+
+*(Note: `globals.css` already imports Instrument Sans, Geist, and Geist Mono from Google Fonts. No additional `<link>` tags are needed for the fonts in your HTML.)*
 
 ### 2. Add the Tailwind config
+Wire up your project's `tailwind.config.ts` to utilize the brand configurations. All color utilities (`bg-primary`, `text-foreground`, `border-border`, etc.) will resolve to the CSS variables automatically:
 
-In your project's `tailwind.config.ts`:
-```ts
+```typescript
 import type { Config } from 'tailwindcss'
 import brand from '@amansanoj/brand/tailwind'
 
@@ -88,12 +78,14 @@ const config: Config = {
 export default config
 ```
 
-All color utilities (`bg-primary`, `text-foreground`, `border-border`, etc.) will resolve to the CSS variables automatically.
-
 ### 3. Import assets
-```ts
+You can easily import static assets directly from the package where needed:
+
+```typescript
 import headshot from '@amansanoj/brand/images/headshots/main.jpg'
 ```
 
-## Fonts
-`globals.css` already imports Instrument Sans, Geist, and Geist Mono from Google Fonts. No additional `<link>` tags needed.
+## License
+**Proprietary & Closed Source**
+
+This repository and all of its contents—including but not limited to icons, headshots, logos, and specific design assets—are the sole property of the author. **This is not an open-source project.** You may not copy, reproduce, distribute, publish, display, perform, modify, create derivative works, or in any way exploit any part of this repository without explicit written permission.
