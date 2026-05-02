@@ -3,21 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brand Styleguide</title>
+    <title>Brand Styleguide — Aman Sanoj</title>
+    <meta
+      name="description"
+      content="Interactive styleguide for Aman Sanoj's brand colors and typography."
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="./style.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/@amansanoj/brand/globals.css"
     />
-    <!-- Phosphor Duotone Icons -->
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@latest/src/duotone/style.css"
     />
 
-    <!-- Inline theme initialization to prevent FOUC -->
+    <!--
+      Prevent flash of unstyled content (FOUC) by applying the saved theme
+      before the first paint. Reads localStorage, falls back to system preference.
+    -->
     <script>
       (() => {
         const saved = localStorage.getItem("theme");
@@ -34,6 +40,9 @@
   <body
     class="bg-background text-foreground min-h-screen flex flex-col items-center pt-16 px-5 pb-20 font-body antialiased leading-normal"
   >
+    <!-- =====================================================================
+         Page wrapper — constrained to max-w-5xl
+    ====================================================================== -->
     <div class="w-full max-w-5xl flex flex-col gap-12">
       <!-- Header -->
       <header class="flex flex-col gap-2">
@@ -42,16 +51,16 @@
             Brand System
           </h1>
 
+          <!-- Header actions: theme toggle, NPM, GitHub -->
           <nav class="flex items-center gap-5" aria-label="Header actions">
+            <!-- Theme toggle — icon swaps between sun (dark mode) and moon (light mode) -->
             <button
               id="theme-toggle"
               type="button"
               class="text-muted-foreground hover:text-secondary transition-colors duration-200 flex items-center"
               aria-label="Toggle dark mode"
             >
-              <!-- Sun icon (shown in dark mode) -->
               <i id="icon-sun" class="ph-duotone ph-sun hidden text-[2rem]"></i>
-              <!-- Moon icon (shown in light mode) -->
               <i
                 id="icon-moon"
                 class="ph-duotone ph-moon hidden text-[2rem]"
@@ -63,7 +72,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="text-muted-foreground hover:text-secondary transition-colors duration-200 flex items-center"
-              aria-label="View package on NPM"
+              aria-label="View on NPM"
             >
               <svg
                 role="img"
@@ -85,7 +94,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="text-muted-foreground hover:text-secondary transition-colors duration-200 flex items-center"
-              aria-label="View package on GitHub"
+              aria-label="View on GitHub"
             >
               <svg
                 role="img"
@@ -105,10 +114,13 @@
         </div>
 
         <p class="text-xl text-muted-foreground">
-          Interactive styleguide for my brand's colors and typography.
+          Colors and typography, all in one place.
         </p>
 
-        <!-- RealTimeColors preview links — hidden until tokens are loaded -->
+        <!--
+          RealTimeColors preview links — hidden until tokens are fetched.
+          Shown once buildRealTimeColorsUrl() has run successfully.
+        -->
         <div
           id="rt-buttons-container"
           class="flex flex-wrap items-center gap-3 mt-3 hidden"
@@ -138,15 +150,18 @@
       <hr class="border-border border-t-2" />
     </div>
 
-    <div class="w-full max-w-4xl flex flex-col gap-12 pt-12">
-      <!-- Colors Section -->
+    <!-- =====================================================================
+         Main content — slightly narrower max-w-4xl for comfortable reading
+    ====================================================================== -->
+    <div class="w-full max-w-4xl flex flex-col gap-12 pt-12 pb-12">
+      <!-- Colors -->
       <section aria-labelledby="colors-heading">
         <div class="flex flex-col gap-1 mb-10">
           <h2 id="colors-heading" class="text-3xl font-semibold font-display">
             Colors
           </h2>
           <p class="text-base text-muted-foreground">
-            Click any format to copy the exact value to your clipboard.
+            Click any format badge to copy the exact value to your clipboard.
           </p>
         </div>
         <div id="color-palettes-container" class="flex flex-col gap-10"></div>
@@ -154,7 +169,7 @@
 
       <hr class="border-border border-t-2 mt-4" />
 
-      <!-- Typography Section -->
+      <!-- Typography -->
       <section aria-labelledby="typography-heading">
         <div class="flex flex-col gap-1 mb-6">
           <h2
@@ -164,11 +179,80 @@
             Typography
           </h2>
           <p class="text-base text-muted-foreground">
-            Preview my core font families and view them on Google Fonts.
+            The three typefaces that shape the brand's voice. Open each on
+            Google Fonts to explore weights and specimens.
           </p>
         </div>
         <div id="typography-container"></div>
       </section>
+    </div>
+
+    <!-- =====================================================================
+         Footer
+    ====================================================================== -->
+    <div class="w-full max-w-5xl flex flex-col gap-12">
+      <footer
+        class="w-full max-w-5xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mt-8 pt-8 border-t-2 border-border pb-8"
+      >
+        <div class="flex flex-col gap-2 text-left">
+          <h4
+            class="text-2xl font-semibold font-display tracking-normal text-foreground"
+          >
+            © 2026 Aman Sanoj
+          </h4>
+          <p class="text-base text-muted-foreground leading-relaxed">
+            Built with
+            <a
+              href="https://www.npmjs.com/package/basecoat-css"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground font-medium hover:text-secondary transition-colors underline decoration-border hover:decoration-secondary underline-offset-4"
+              >Basecoat</a
+            >,
+            <a
+              href="https://tailwindcss.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground font-medium hover:text-secondary transition-colors underline decoration-border hover:decoration-secondary underline-offset-4"
+              >Tailwind CSS</a
+            >,
+            <a
+              href="https://fonts.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground font-medium hover:text-secondary transition-colors underline decoration-border hover:decoration-secondary underline-offset-4"
+              >Google Fonts</a
+            >,
+            <a
+              href="https://phosphoricons.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground font-medium hover:text-secondary transition-colors underline decoration-border hover:decoration-secondary underline-offset-4"
+              >Phosphor Icons</a
+            >
+            and
+            <a
+              href="https://simpleicons.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground font-medium hover:text-secondary transition-colors underline decoration-border hover:decoration-secondary underline-offset-4"
+              >Simple Icons</a
+            >.
+          </p>
+        </div>
+
+        <nav class="flex items-center gap-5" aria-label="Footer navigation">
+          <a
+            href="https://chaya.qzz.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-secondary transition-colors duration-200 flex items-center"
+            aria-label="Visit chaya.qzz.io"
+          >
+            <i class="ph-duotone ph-globe text-[2.5rem]"></i>
+          </a>
+        </nav>
+      </footer>
     </div>
 
     <script
@@ -177,10 +261,13 @@
     ></script>
 
     <script>
-      // ---------------------------------------------------------------------------
-      // Constants & DOM refs
-      // ---------------------------------------------------------------------------
+      // =========================================================================
+      // Config
+      // =========================================================================
+
       const TOKENS_URL = "https://unpkg.com/@amansanoj/brand/tokens.json";
+
+      /** Color categories rendered in this order. */
       const PALETTE_CATEGORIES = [
         "primary",
         "secondary",
@@ -188,74 +275,86 @@
         "text",
         "background",
       ];
-      const STORY_SAMPLES = {
+
+      /** Short prose samples that showcase each typeface in context. */
+      const FONT_SAMPLES = {
         display:
           "The hum of the warp drive shifted an octave, signaling our arrival at the edge of the known universe.",
-        body: "For three generations, humanity had stared at this exact quadrant through the hazy lenses of orbital telescopes, dreaming of what lay beyond the indigo nebula. Now, pressing my face against the chilled viewport of the Aethelgard, I could see the fracturing crystalline structures of the anomaly with my own eyes. It wasn't just empty space; it was a doorway.",
+        body: "For three generations, humanity had stared at this exact quadrant through the hazy lenses of orbital telescopes, dreaming of what lay beyond the indigo nebula. Now, pressing my face against the chilled viewport of the Aethelgard, I could see the fracturing crystalline structures of the anomaly with my own eyes. It wasn't just empty space — it was a doorway.",
         mono: "> INITIALIZING DIAGNOSTICS...\n> HULL INTEGRITY: 98.2%\n> ANOMALY DETECTED:\n  - CLASS: UNKNOWN\n  - SPATIAL DISTORTION: EXTREME\n> AWAITING COMMAND OVERRIDE...",
       };
+
+      // =========================================================================
+      // DOM references
+      // =========================================================================
 
       const colorContainer = document.getElementById(
         "color-palettes-container",
       );
       const typoContainer = document.getElementById("typography-container");
 
-      // ---------------------------------------------------------------------------
+      // =========================================================================
       // Theme
-      // ---------------------------------------------------------------------------
+      // =========================================================================
+
       const themeToggleBtn = document.getElementById("theme-toggle");
       const iconSun = document.getElementById("icon-sun");
       const iconMoon = document.getElementById("icon-moon");
 
-      /** Sync icon visibility to the current theme state. */
+      /** Match icon visibility to the active theme. */
       function syncThemeIcons() {
         const isDark = document.documentElement.classList.contains("dark");
         iconSun.classList.toggle("hidden", !isDark);
         iconMoon.classList.toggle("hidden", isDark);
       }
 
-      /** Toggle dark/light mode, persist preference, and update icons. */
-      function applyThemeToggle() {
+      /** Flip theme, persist it, and update icons. Wrapped in View Transition when available. */
+      function toggleTheme() {
         const isDark = document.documentElement.classList.toggle("dark");
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
         localStorage.setItem("theme", isDark ? "dark" : "light");
         syncThemeIcons();
       }
 
-      syncThemeIcons();
+      syncThemeIcons(); // Run once on load to match the FOUC-prevention script above.
 
       themeToggleBtn.addEventListener("click", () => {
-        if (document.startViewTransition) {
-          document.startViewTransition(applyThemeToggle);
-        } else {
-          applyThemeToggle();
-        }
+        document.startViewTransition
+          ? document.startViewTransition(toggleTheme)
+          : toggleTheme();
       });
 
-      // ---------------------------------------------------------------------------
-      // Copy-to-clipboard
-      // ---------------------------------------------------------------------------
+      // =========================================================================
+      // Clipboard
+      // =========================================================================
+
+      /**
+       * Delegate click events on the color grid to handle copy-to-clipboard.
+       * Uses data attributes on the nearest .swatch-card to retrieve the value
+       * for the current theme, avoiding repeated DOM queries.
+       */
       colorContainer.addEventListener("click", (e) => {
         const btn = e.target.closest(".copy-btn");
         if (!btn) return;
 
         const card = btn.closest(".swatch-card");
-        const format = btn.dataset.format;
+        const format = btn.dataset.format; // "hex" | "rgb" | "oklch"
         const theme = document.documentElement.classList.contains("dark")
           ? "Dark"
           : "Light";
-        const value = card.dataset[`${format}${theme}`];
+        const value = card.dataset[`${format}${theme}`]; // e.g. data-hex-light
 
         navigator.clipboard.writeText(value).then(() => {
-          const original = btn.textContent;
+          const originalLabel = btn.textContent;
           btn.textContent = "Copied!";
           btn.classList.add(
             "!bg-accent",
             "!border-accent",
             "!text-accent-foreground",
           );
+
           setTimeout(() => {
-            btn.textContent = original;
+            btn.textContent = originalLabel;
             btn.classList.remove(
               "!bg-accent",
               "!border-accent",
@@ -265,74 +364,111 @@
         });
       });
 
-      // ---------------------------------------------------------------------------
+      // =========================================================================
       // Token helpers
-      // ---------------------------------------------------------------------------
+      // =========================================================================
 
       /**
-       * Resolve a color token from the tokens object.
+       * Read a single color value from the tokens object.
+       *
+       * @param {object} data      - Parsed tokens.json
        * @param {'hex'|'rgb'|'oklch'} format
        * @param {'light'|'dark'} theme
-       * @param {string} category  e.g. 'primary'
-       * @param {string} shade     e.g. 'base' | '100' | '200' …
+       * @param {string} category  - e.g. "primary"
+       * @param {string} shade     - "base" | "100" | "200" | …
+       * @returns {string}
        */
       function getToken(data, format, theme, category, shade) {
+        // oklch values live directly under data.color[theme];
+        // hex and rgb live under data.color[format][theme].
         const root =
           format === "oklch" ? data.color[theme] : data.color[format][theme];
+
         return shade === "base" ? root.base[category] : root[category][shade];
       }
 
       /**
-       * Build a RealTimeColors preview URL for a given theme.
-       * @param {object} data  Parsed tokens.json
+       * Build a RealTimeColors preview URL from the brand's base tokens.
+       * Encodes text, background, primary, secondary, and accent hex values
+       * plus the display and body font names.
+       *
+       * @param {object} data       - Parsed tokens.json
        * @param {'light'|'dark'} theme
+       * @returns {string} Full URL
        */
       function buildRealTimeColorsUrl(data, theme) {
         const base = data.color.hex[theme].base;
-        const strip = (hex) => hex.replace("#", "");
-        const colors = `${strip(base.text)}-${strip(base.background)}-${strip(base.primary)}-${strip(base.secondary)}-${strip(base.accent)}`;
-        const displayFont = data.typography.family.display
-          .split(",")[0]
-          .replace(/['"]/g, "")
-          .trim();
-        const bodyFont = data.typography.family.body
-          .split(",")[0]
-          .replace(/['"]/g, "")
-          .trim();
-        const fonts = `${displayFont}-${bodyFont}`.replace(/ /g, "%20");
+        const stripHash = (hex) => hex.replace("#", "");
+
+        const colors = [
+          base.text,
+          base.background,
+          base.primary,
+          base.secondary,
+          base.accent,
+        ]
+          .map(stripHash)
+          .join("-");
+
+        const firstFamily = (str) =>
+          str.split(",")[0].replace(/['"]/g, "").trim();
+        const fonts =
+          `${firstFamily(data.typography.family.display)}-${firstFamily(data.typography.family.body)}`.replace(
+            / /g,
+            "%20",
+          );
+
         return `https://www.realtimecolors.com/?colors=${colors}&fonts=${fonts}`;
       }
 
-      // ---------------------------------------------------------------------------
+      // =========================================================================
       // HTML builders
-      // ---------------------------------------------------------------------------
+      // =========================================================================
 
-      /** Create the inner HTML for a single color swatch card. */
-      function createSwatchHTML(shadeName, cssVariable, tokens) {
+      /**
+       * Build the inner markup for one color swatch card.
+       * Stores all theme variants as data attributes so the copy handler
+       * can read them without re-querying the DOM.
+       *
+       * @param {string} shadeName  - Display label, e.g. "Base" | "100"
+       * @param {string} cssVar     - CSS variable reference, e.g. "var(--primary)"
+       * @param {object} tokens     - { hexL, hexD, rgbL, rgbD, oklchL, oklchD }
+       * @returns {string} HTML string
+       */
+      function buildSwatchHTML(shadeName, cssVar, tokens) {
         const { hexL, hexD, rgbL, rgbD, oklchL, oklchD } = tokens;
+
         return `
-        <div
-          class="swatch-card flex flex-col rounded-xl border border-border bg-background overflow-hidden"
-          data-hex-light="${hexL}" data-hex-dark="${hexD}"
-          data-rgb-light="${rgbL}" data-rgb-dark="${rgbD}"
-          data-oklch-light="${oklchL}" data-oklch-dark="${oklchD}"
-        >
-          <div class="h-20 w-full border-b border-border/50 color-block" style="background-color: ${cssVariable}"></div>
-          <div class="p-3 flex flex-col gap-2.5">
-            <span class="font-semibold text-foreground text-sm capitalize">${shadeName}</span>
-            <div class="flex items-center gap-1.5 w-full">
-              <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="hex" aria-label="Copy HEX value">HEX</button>
-              <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="rgb" aria-label="Copy RGB value">RGB</button>
-              <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="oklch" aria-label="Copy OKLCH value">OKLCH</button>
+          <div
+            class="swatch-card flex flex-col rounded-xl border border-border bg-background overflow-hidden"
+            data-hex-light="${hexL}"   data-hex-dark="${hexD}"
+            data-rgb-light="${rgbL}"   data-rgb-dark="${rgbD}"
+            data-oklch-light="${oklchL}" data-oklch-dark="${oklchD}"
+          >
+            <div class="h-20 w-full border-b border-border/50 color-block" style="background-color: ${cssVar}"></div>
+            <div class="p-3 flex flex-col gap-2.5">
+              <span class="font-semibold text-foreground text-sm capitalize">${shadeName}</span>
+              <div class="flex items-center gap-1.5 w-full">
+                <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="hex"   aria-label="Copy HEX value">HEX</button>
+                <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="rgb"   aria-label="Copy RGB value">RGB</button>
+                <button class="copy-btn flex-1 py-1.5 text-[10px] font-bold tracking-wider bg-muted border border-border text-muted-foreground rounded hover:border-primary hover:bg-primary hover:text-primary-foreground transition-colors" data-format="oklch" aria-label="Copy OKLCH value">OKLCH</button>
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
       }
 
-      /** Create the HTML for a full color palette section. */
-      function createPaletteSectionHTML(data, category) {
-        const mkTokens = (shade) => ({
+      /**
+       * Build the full markup for one color palette section (e.g. "Primary").
+       * Renders the base swatch first, then all numeric shades in ascending order.
+       *
+       * @param {object} data      - Parsed tokens.json
+       * @param {string} category  - e.g. "primary"
+       * @returns {string} HTML string
+       */
+      function buildPaletteSectionHTML(data, category) {
+        /** Collect all three format values for a given shade in both themes. */
+        const collectTokens = (shade) => ({
           hexL: getToken(data, "hex", "light", category, shade),
           hexD: getToken(data, "hex", "dark", category, shade),
           rgbL: getToken(data, "rgb", "light", category, shade),
@@ -341,83 +477,105 @@
           oklchD: getToken(data, "oklch", "dark", category, shade),
         });
 
-        const baseVar = `var(--${category})`;
-        let swatchesHTML = createSwatchHTML("Base", baseVar, mkTokens("base"));
+        // Base swatch comes first.
+        let swatchesHTML = buildSwatchHTML(
+          "Base",
+          `var(--${category})`,
+          collectTokens("base"),
+        );
 
-        const shadeKeys = Object.keys(
+        // Numeric shades, sorted ascending (100, 200, 300, …).
+        const numericShades = Object.keys(
           data.color.hex.light[category] ?? {},
         ).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
 
-        for (const shade of shadeKeys) {
-          swatchesHTML += createSwatchHTML(
+        for (const shade of numericShades) {
+          swatchesHTML += buildSwatchHTML(
             shade,
             `var(--${category}-${shade})`,
-            mkTokens(shade),
+            collectTokens(shade),
           );
         }
 
         return `
-        <div class="flex flex-col gap-4">
-          <h3 class="text-2xl font-semibold font-display border-b border-border pb-2 capitalize">${category}</h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 palette-grid">${swatchesHTML}</div>
-        </div>
-      `;
+          <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-semibold font-display border-b border-border pb-2 capitalize">${category}</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 palette-grid">${swatchesHTML}</div>
+          </div>
+        `;
       }
 
-      /** Create the HTML for the typography section. */
-      function createTypographyHTML(families) {
-        const sizeClasses = {
+      /**
+       * Build the markup for the typography section.
+       * Each card shows a sample sentence, the font name, and a Google Fonts link.
+       *
+       * @param {{ display: string, body: string, mono: string }} families
+       *   Font-family CSS strings keyed by role.
+       * @returns {string} HTML string
+       */
+      function buildTypographyHTML(families) {
+        const sizeByRole = {
           display: "text-4xl md:text-5xl",
           body: "text-xl md:text-2xl",
           mono: "text-lg md:text-xl",
         };
-        const extraClasses = {
-          mono: "whitespace-pre-wrap",
+
+        const extraByRole = {
           display: "leading-relaxed",
           body: "leading-relaxed",
+          mono: "whitespace-pre-wrap",
         };
 
         const cards = Object.entries(families)
-          .map(([category, fontString]) => {
-            const fontName = fontString
+          .map(([role, fontStack]) => {
+            const fontName = fontStack
               .split(",")[0]
               .replace(/['"]/g, "")
               .trim();
             const googleFontsUrl = `https://fonts.google.com/specimen/${fontName.replace(/ /g, "+")}`;
-            const sample = STORY_SAMPLES[category] ?? "";
+            const sample = FONT_SAMPLES[role] ?? "";
 
             return `
-          <div class="swatch-card flex flex-col rounded-xl border border-border bg-background overflow-hidden">
-            <div class="w-full border-b border-border/50 p-6 md:p-8 bg-muted/30 min-h-[160px] flex items-center">
-              <p class="${sizeClasses[category]} text-foreground font-${category} ${extraClasses[category]}">${sample}</p>
-            </div>
-            <div class="p-4 flex items-center justify-between w-full">
-              <div class="flex flex-col gap-0.5">
-                <span class="font-semibold text-foreground text-sm capitalize">${category}</span>
-                <span class="text-xs text-muted-foreground truncate">${fontName}</span>
+            <div class="swatch-card flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+              <div class="w-full border-b border-border/50 p-6 md:p-8 bg-muted/30 min-h-[160px] flex items-center">
+                <p class="${sizeByRole[role]} text-foreground font-${role} ${extraByRole[role]}">${sample}</p>
               </div>
-              <a href="${googleFontsUrl}" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-foreground transition-colors p-1" aria-label="View ${fontName} on Google Fonts">
-                <i class="ph-duotone ph-arrow-up-right text-[1.25rem]"></i>
-              </a>
+              <div class="p-4 flex items-center justify-between w-full">
+                <div class="flex flex-col gap-0.5">
+                  <span class="font-semibold text-foreground text-sm capitalize">${role}</span>
+                  <span class="text-xs text-muted-foreground truncate">${fontName}</span>
+                </div>
+                <a href="${googleFontsUrl}" target="_blank" rel="noopener noreferrer"
+                  class="text-muted-foreground hover:text-foreground transition-colors p-1"
+                  aria-label="Open ${fontName} on Google Fonts">
+                  <i class="ph-duotone ph-arrow-up-right text-[1.25rem]"></i>
+                </a>
+              </div>
             </div>
-          </div>
-        `;
+          `;
           })
           .join("");
 
         return `<div class="flex flex-col gap-6">${cards}</div>`;
       }
 
-      // ---------------------------------------------------------------------------
-      // Bootstrap — fetch tokens and render everything
-      // ---------------------------------------------------------------------------
+      // =========================================================================
+      // Bootstrap
+      // =========================================================================
+
+      /**
+       * Fetch brand tokens from the NPM CDN, then render colors and typography.
+       * On failure, surfaces an error message inline rather than a silent break.
+       */
       async function init() {
         try {
           const response = await fetch(TOKENS_URL);
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          if (!response.ok)
+            throw new Error(`Unexpected response: HTTP ${response.status}`);
+
           const data = await response.json();
 
-          // RealTimeColors preview buttons
+          // Wire up RealTimeColors preview buttons and reveal them.
           document.getElementById("rt-link-light").href =
             buildRealTimeColorsUrl(data, "light");
           document.getElementById("rt-link-dark").href = buildRealTimeColorsUrl(
@@ -428,21 +586,18 @@
             .getElementById("rt-buttons-container")
             .classList.remove("hidden");
 
-          // Colors
-          const palettesHTML = PALETTE_CATEGORIES.map((cat) =>
-            createPaletteSectionHTML(data, cat),
+          // Render color palettes.
+          colorContainer.innerHTML = PALETTE_CATEGORIES.map((cat) =>
+            buildPaletteSectionHTML(data, cat),
           ).join("");
-          colorContainer.innerHTML = palettesHTML;
 
-          // Typography
-          typoContainer.innerHTML = createTypographyHTML(
-            data.typography.family,
-          );
+          // Render typography cards.
+          typoContainer.innerHTML = buildTypographyHTML(data.typography.family);
         } catch (err) {
           console.error("Failed to load brand tokens:", err);
           colorContainer.insertAdjacentHTML(
             "beforeend",
-            '<p class="text-destructive">Failed to load brand tokens from NPM. Please try again later.</p>',
+            `<p class="text-destructive">Couldn't load brand tokens from the NPM registry. Check your connection and try again.</p>`,
           );
         }
       }
