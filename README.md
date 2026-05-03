@@ -1,4 +1,4 @@
-![OG Image](https://repo-og-generator.vercel.app/brand?description=Personal%20brand%20system%20-%20shadcn%2Fui-%20compatible%20design%20tokens%2C%20logos%2C%20fonts%2C%20headshots%2C%20and%20shared%20assets&scale=2)
+![OG Image](https://repo-og-generator.vercel.app/brand?description=Personal%20brand%20system%20-%20shadcn%2Fui-%20compatible%20design%20tokens%2C%20logos%2C%20fonts%2C%20headshots%2C%20and%20shared%20assets&variant=accent&scale=2)
 
 ## Index
 - [Features](#features)
