@@ -89,3 +89,17 @@ import headshot from '@amansanoj/brand/images/headshots/main.jpg'
 **Proprietary & Closed Source**
 
 This repository and all of its contents—including but not limited to icons, headshots, logos, and specific design assets—are the sole property of the author. **This is not an open-source project.** You may not copy, reproduce, distribute, publish, display, perform, modify, create derivative works, or in any way exploit any part of this repository without explicit written permission.
+
+## Secondary Color Contrast
+
+The light secondary base is `oklch(52.00% 0.105 70.06)` (`#8f5d14`), retaining
+its amber hue at a lightness suitable for text. It provides 5.40:1 contrast on
+the light background. Filled secondary controls use the light background token
+for their foreground so their labels also meet AA.
+
+The dark secondary remains `oklch(76.97% 0.150 70.06)` (`#f0a133`), providing
+9.56:1 contrast on the dark background. The numbered secondary palette is unchanged.
+
+Run `bun test` to check both themes against the background, card, popover, and
+muted surfaces, as well as secondary button labels. The publish workflow runs
+these checks before releasing the package.

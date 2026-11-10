@@ -20,7 +20,12 @@ jobs:
           node-version: '24.x'
           registry-url: 'https://registry.npmjs.org'
           
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+
       - run: npm ci
+      - run: bun test
       
       - run: npm publish --provenance --access public
         env:
